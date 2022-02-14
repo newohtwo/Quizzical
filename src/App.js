@@ -1,11 +1,12 @@
 import './App.css';
 import IntroductionPage from './components/IntroductionPage';
+import TriviaQuastions from './components/TriviaQuastions';
 import react from 'react';
 import axios from 'axios';
 
 function App() {
   const [triviaQuastions, setTriviaQuastions] = react.useState();
-  const [gameChoice, setGameChoice] = react.useState(false);
+  const [showSettings, setShowSettings] = react.useState(true);
 
   function createApiCall(userPrefrences) {
     console.log(userPrefrences);
@@ -15,19 +16,21 @@ function App() {
   //TODO FIND A WAY TO USE THE GOTTEN DATA INTO THE NEXT PAGE OF THE APP
   //SHOW THE DATA IN A QUASTION AND ANSWER WAY ,
   //SHOW CORRECT AND INCORRECT ANSWERS
+
   async function fetchTrivia(url) {
     const response = await axios.get(url);
     setTriviaQuastions(response.data.results);
+    toggleShowSettings();
   }
 
-  function test() {
-    console.log(triviaQuastions);
+  function toggleShowSettings() {
+    setShowSettings((oldSate) => !oldSate);
   }
 
   return (
     <div className="App container page rounded  mt-4">
-      {!gameChoice && <IntroductionPage createApiCall={createApiCall} />}
-      <button onClick={test}>asdf</button>
+      {!showSettings && <IntroductionPage createApiCall={createApiCall} />}
+      {showSettings && <TriviaQuastions />}
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function IntroductionPage(props) {
         <p>Trivia game about anything and everything!</p>
       </div>
 
-      <div className=" container">
+      <div className="container ms-5  fw-bold">
         <h3>Game Settings:</h3>
         <div>
           <label className="game-setting-select">
@@ -85,6 +85,7 @@ export default function IntroductionPage(props) {
         </div>
 
         <input
+          className="start-btn mt-2 fw-bold"
           type="submit"
           value="Start Game!"
           onClick={() => props.createApiCall(form)}
