@@ -12,6 +12,12 @@ export default function triviaQuastions(props) {
         correctAnswer={data.results[0].correct_answer}
         quastion={data.results[0].question}
       ></Quastion>
+      <Quastion
+        key={nanoid()}
+        incorrectAnswer={data.results[0].incorrect_answers}
+        correctAnswer={data.results[0].correct_answer}
+        quastion={data.results[0].question}
+      ></Quastion>
     </div>
   );
 }

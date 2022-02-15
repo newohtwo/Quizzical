@@ -25,10 +25,13 @@ export default function Quastion(props) {
       return <SelectButton key={nanoid()} answer={answer} isSelected={false} />;
     });
   }
+
   return (
-    <div className="container">
-      <p>{props.quastion}</p>
-      {answers()}
+    <div className="container mt-4">
+      <p className="fw-bold">{props.quastion} </p>
+      <div className="container d-sm-flex justify-content-around ">
+        {answers()}
+      </div>
     </div>
   );
 }

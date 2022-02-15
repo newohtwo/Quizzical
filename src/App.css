@@ -25,6 +25,10 @@ body {
   );
 }
 
+.answer {
+  width: 130px;
+}
+
 .start-btn {
   padding: 3px 20px 3px 20px;
 }
