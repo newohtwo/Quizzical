@@ -1,5 +1,4 @@
 const arr = {
-  response_code: 0,
   results: [
     {
       category: 'Science: Computers',
@@ -36,70 +35,70 @@ const arr = {
       correct_answer: 'TRS-80',
       incorrect_answers: ['Commodore 64', 'ZX Spectrum', 'Apple 3'],
     },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question:
-        'What is the name of the process that sends one qubit of information using two bits of classical information?',
-      correct_answer: 'Quantum Teleportation',
-      incorrect_answers: [
-        'Super Dense Coding',
-        'Quantum Entanglement',
-        'Quantum Programming',
-      ],
-    },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question:
-        'What was the first company to use the term &quot;Golden Master&quot;?',
-      correct_answer: 'Apple',
-      incorrect_answers: ['IBM', 'Microsoft', 'Google'],
-    },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question:
-        'Released in 2001, the first edition of Apple&#039;s Mac OS X operating system (version 10.0) was given what animal code name?',
-      correct_answer: 'Cheetah',
-      incorrect_answers: ['Puma', 'Tiger', 'Leopard'],
-    },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question: 'What vulnerability ranked #1 on the OWASP Top 10 in 2013?',
-      correct_answer: 'Injection ',
-      incorrect_answers: [
-        'Broken Authentication',
-        'Cross-Site Scripting',
-        'Insecure Direct Object References',
-      ],
-    },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question: 'What was the name of the first Bulgarian personal computer?',
-      correct_answer: 'IMKO-1',
-      incorrect_answers: ['Pravetz 82', 'Pravetz 8D', 'IZOT 1030'],
-    },
-    {
-      category: 'Science: Computers',
-      type: 'multiple',
-      difficulty: 'hard',
-      question:
-        'Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?',
-      correct_answer: 'Cherry MX Blue',
-      incorrect_answers: [
-        'Cherry MX Black',
-        'Cherry MX Red',
-        'Cherry MX Brown',
-      ],
-    },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question:
+    //     'What is the name of the process that sends one qubit of information using two bits of classical information?',
+    //   correct_answer: 'Quantum Teleportation',
+    //   incorrect_answers: [
+    //     'Super Dense Coding',
+    //     'Quantum Entanglement',
+    //     'Quantum Programming',
+    //   ],
+    // },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question:
+    //     'What was the first company to use the term &quot;Golden Master&quot;?',
+    //   correct_answer: 'Apple',
+    //   incorrect_answers: ['IBM', 'Microsoft', 'Google'],
+    // },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question:
+    //     'Released in 2001, the first edition of Apple&#039;s Mac OS X operating system (version 10.0) was given what animal code name?',
+    //   correct_answer: 'Cheetah',
+    //   incorrect_answers: ['Puma', 'Tiger', 'Leopard'],
+    // },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question: 'What vulnerability ranked #1 on the OWASP Top 10 in 2013?',
+    //   correct_answer: 'Injection ',
+    //   incorrect_answers: [
+    //     'Broken Authentication',
+    //     'Cross-Site Scripting',
+    //     'Insecure Direct Object References',
+    //   ],
+    // },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question: 'What was the name of the first Bulgarian personal computer?',
+    //   correct_answer: 'IMKO-1',
+    //   incorrect_answers: ['Pravetz 82', 'Pravetz 8D', 'IZOT 1030'],
+    // },
+    // {
+    //   category: 'Science: Computers',
+    //   type: 'multiple',
+    //   difficulty: 'hard',
+    //   question:
+    //     'Which of these Cherry MX mechanical keyboard switches is both tactile and clicky?',
+    //   correct_answer: 'Cherry MX Blue',
+    //   incorrect_answers: [
+    //     'Cherry MX Black',
+    //     'Cherry MX Red',
+    //     'Cherry MX Brown',
+    //   ],
+    // },
   ],
 };
 export default arr;

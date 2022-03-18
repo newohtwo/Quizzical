@@ -1,5 +1,5 @@
 import react from 'react';
-import data from './TriviaCategoriesData';
+import data from './triviaCategoriesData';
 //most likely i can generalise the select options
 
 export default function IntroductionPage(props) {
