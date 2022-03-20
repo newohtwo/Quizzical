@@ -66,7 +66,11 @@ function App() {
         <IntroductionPage createApiCall={mockCreateApiCall} key={nanoid()} />
       )}
       {showSettings && (
-        <TriviaQuastions triviaQuastions={triviaQuastions} key={nanoid()} />
+        <TriviaQuastions
+          triviaQuastions={triviaQuastions}
+          triviaLength={triviaQuastions.length}
+          key={nanoid()}
+        />
       )}
     </div>
   );

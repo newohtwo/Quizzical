@@ -6,20 +6,55 @@ export default function triviaQuastions(props) {
   const [score, setScore] = react.useState(0);
   const [questions, setQuestions] = react.useState(initQuestions());
 
+  const [currentQuestionArr, setCurrentQuestionArr] = react.useState(
+    createQuestions()
+  );
+
+  const [questionsCurrentIndex, setQuestionsCurrentIndex] = react.useState(
+    Number(0)
+  );
+
+  react.useEffect(() => {
+    updateCurrentQArr();
+  }, [questionsCurrentIndex]);
+
+  //TODO update the questionArr with new values either going up or down useing the questions arr
+
   function createQuestions() {
-    return questions.map((question) => {
-      return (
-        <Question
-          key={nanoid()}
-          question={question.questionText}
-          correctAnswer={question.correctAnswer}
-          buttons={question.buttons}
-          index={question.index}
-          buttonClick={buttonClick}
-          updateScore={updateScore}
-        ></Question>
-      );
-    });
+    const arr = [];
+    for (let index = 0; index <= 3; index++) {
+      arr.push(createQuestionComponent(questions[index]));
+    }
+    return arr;
+  }
+
+  function updateCurrentQArr() {
+    let arr = [];
+    if (questionsCurrentIndex + 4 > props.triviaLength) {
+      arr = questions
+        .slice(questionsCurrentIndex, props.triviaLength)
+        .map((question) => createQuestionComponent(question));
+    } else {
+      arr = questions
+        .slice(questionsCurrentIndex, questionsCurrentIndex + 4)
+        .map((question) => createQuestionComponent(question));
+    }
+
+    setCurrentQuestionArr(arr);
+  }
+
+  function createQuestionComponent(question) {
+    return (
+      <Question
+        key={nanoid()}
+        question={question.questionText}
+        correctAnswer={question.correctAnswer}
+        buttons={question.buttons}
+        index={question.index}
+        buttonClick={buttonClick}
+        updateScore={updateScore}
+      ></Question>
+    );
   }
 
   function initQuestions() {
@@ -64,6 +99,7 @@ export default function triviaQuastions(props) {
 
     cpyArray[index] = cpyQuestion;
     setQuestions(cpyArray);
+    updateCurrentQArr();
   }
   //compares the user choosen button answer to the correct answer
   function compareAnswer(answer, buttonAnswer) {
@@ -77,11 +113,27 @@ export default function triviaQuastions(props) {
     setScore((oldNum) => oldNum + 1);
   }
 
+  function moveToNextPage() {
+    if (questionsCurrentIndex + 4 < props.triviaLength) {
+      setQuestionsCurrentIndex(questionsCurrentIndex + 4);
+    }
+  }
+
+  function moveToPreviousPage() {
+    if (questionsCurrentIndex - 4 >= 0) {
+      setQuestionsCurrentIndex(questionsCurrentIndex - 4);
+    }
+  }
+
+  //need to put here an array that will constanly change its values and that way will "flip" however i want
   return (
-    <div className="container ">
-      {createQuestions()}
-      <div className="container-fluid text-center mt-5">
-        <p>{score}</p>
+    <div className="container-fluid g-0 h-100 d-flex flex-column justify-content-between">
+      <div className="container-fluid  ">{currentQuestionArr}</div>
+
+      <div className="container-fluid  d-flex justify-content-between align-self-end ">
+        <button onClick={() => moveToPreviousPage()}> &#8592;</button>
+        <p> {`score: ${score}/${props.triviaLength}`}</p>
+        <button onClick={() => moveToNextPage()}> →</button>
       </div>
     </div>
   );
