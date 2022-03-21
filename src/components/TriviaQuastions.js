@@ -1,10 +1,12 @@
 import react from 'react';
 import Question from './Question';
+import Dots from './Dots';
 import { nanoid } from 'nanoid';
 
 export default function triviaQuastions(props) {
   const [score, setScore] = react.useState(0);
   const [questions, setQuestions] = react.useState(initQuestions());
+  const [currentDotIndex, setCurrentDotIndex] = react.useState(0);
 
   const [currentQuestionArr, setCurrentQuestionArr] = react.useState(
     createQuestions()
@@ -116,13 +118,25 @@ export default function triviaQuastions(props) {
   function moveToNextPage() {
     if (questionsCurrentIndex + 4 < props.triviaLength) {
       setQuestionsCurrentIndex(questionsCurrentIndex + 4);
+      setCurrentDotIndex((num) => num + 1);
     }
   }
 
   function moveToPreviousPage() {
     if (questionsCurrentIndex - 4 >= 0) {
       setQuestionsCurrentIndex(questionsCurrentIndex - 4);
+      setCurrentDotIndex((num) => num - 1);
     }
+  }
+
+  function dotSize() {
+    let num = props.triviaLength;
+    let dotNum = 0;
+    while (num > 0) {
+      dotNum += 1;
+      num -= 4;
+    }
+    return dotNum;
   }
 
   //need to put here an array that will constanly change its values and that way will "flip" however i want
@@ -132,7 +146,10 @@ export default function triviaQuastions(props) {
 
       <div className="container-fluid  d-flex justify-content-between align-self-end ">
         <button onClick={() => moveToPreviousPage()}> &#8592;</button>
-        <p> {`score: ${score}/${props.triviaLength}`}</p>
+        <div className="container text-center">
+          <p className="mb-2"> {`score: ${score}/${props.triviaLength}`}</p>
+          <Dots index={currentDotIndex} dotSize={dotSize()}></Dots>
+        </div>
         <button onClick={() => moveToNextPage()}> →</button>
       </div>
     </div>

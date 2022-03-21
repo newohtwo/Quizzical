@@ -73,7 +73,7 @@ export default function IntroductionPage(props) {
 
         <div>
           <label className="game-setting-select">
-            Select Category:
+            Category:
             <select
               className="form-select"
               onChange={handleChange}

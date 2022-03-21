@@ -27,7 +27,7 @@ body {
 
 .question {
   font-family: 'Heebo', sans-serif;
-  padding-top: 20px;
+  padding-top: 29px;
   text-align: start;
 }
 .answer {
@@ -52,4 +52,45 @@ body {
   .game-setting-select {
     width: 300px;
   }
+}
+
+.dots {
+  /* Center the content */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  /* Reset styles */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dots__item {
+  /* Rounded border */
+  border-radius: 9999px;
+  height: 12px;
+  width: 12px;
+
+  /* Active dot */
+  background-color: rgba(0, 0, 0, 0.3);
+
+  /* Inactive dot */
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+
+  /* OPTIONAL: Spacing between dots */
+  margin: 0 4px;
+}
+.dots__item_active {
+  /* Rounded border */
+  border-radius: 9999px;
+  height: 12px;
+  width: 12px;
+
+  /* Active dot */
+  background-color: rgba(0, 0, 0, 0.3);
+
+  /* OPTIONAL: Spacing between dots */
+  margin: 0 4px;
 }
