@@ -44,6 +44,15 @@ body {
 .start-btn {
   padding: 3px 20px 3px 20px;
 }
+.page-flip-btn {
+  border-radius: 100%;
+  background-color: transparent;
+  font-size: 35px;
+  border-color: black;
+  width: 70px;
+  height: 59px;
+  margin-bottom: 5px;
+}
 
 @media only screen and (max-width: 600px) {
   .page {
@@ -85,11 +94,11 @@ body {
 .dots__item_active {
   /* Rounded border */
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
 
   /* Active dot */
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.534);
 
   /* OPTIONAL: Spacing between dots */
   margin: 0 4px;

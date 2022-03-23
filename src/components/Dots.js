@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+//TODO might be able to optimize by using memo and building its own object for the ui and using that
 export default function Dots(props) {
   function createDots() {
     let arr = [];

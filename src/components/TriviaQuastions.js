@@ -16,12 +16,12 @@ export default function triviaQuastions(props) {
     Number(0)
   );
 
+  //update the current question array after the index is 'moved'
   react.useEffect(() => {
     updateCurrentQArr();
   }, [questionsCurrentIndex]);
 
-  //TODO update the questionArr with new values either going up or down useing the questions arr
-
+  //create initial question on the page
   function createQuestions() {
     const arr = [];
     for (let index = 0; index <= 3; index++) {
@@ -30,6 +30,7 @@ export default function triviaQuastions(props) {
     return arr;
   }
 
+  //update the current question array with new values
   function updateCurrentQArr() {
     let arr = [];
     if (questionsCurrentIndex + 4 > props.triviaLength) {
@@ -45,6 +46,7 @@ export default function triviaQuastions(props) {
     setCurrentQuestionArr(arr);
   }
 
+  //create component from question object
   function createQuestionComponent(question) {
     return (
       <Question
@@ -82,8 +84,7 @@ export default function triviaQuastions(props) {
     });
   }
 
-  //willl need to refactor to be more presentable
-  //disables the rest of the buttons and highlightes the pressed one
+  //disables the buttons in the selected row and highlightes the pressed one
   function buttonClick(...args) {
     const index = args[0];
     const id = args[1];
@@ -99,10 +100,12 @@ export default function triviaQuastions(props) {
       }
     });
 
+    //update the object and the shown array of questions
     cpyArray[index] = cpyQuestion;
     setQuestions(cpyArray);
     updateCurrentQArr();
   }
+
   //compares the user choosen button answer to the correct answer
   function compareAnswer(answer, buttonAnswer) {
     if (answer === buttonAnswer) {
@@ -110,7 +113,6 @@ export default function triviaQuastions(props) {
     }
   }
 
-  // can use effect to check for every correct or incorrect answer after every rerender of the page
   function updateScore() {
     setScore((oldNum) => oldNum + 1);
   }
@@ -129,6 +131,7 @@ export default function triviaQuastions(props) {
     }
   }
 
+  //calculates the amount of dots (page indicatiors) to show on page
   function dotSize() {
     let num = props.triviaLength;
     let dotNum = 0;
@@ -136,21 +139,32 @@ export default function triviaQuastions(props) {
       dotNum += 1;
       num -= 4;
     }
+
     return dotNum;
   }
 
-  //need to put here an array that will constanly change its values and that way will "flip" however i want
   return (
     <div className="container-fluid g-0 h-100 d-flex flex-column justify-content-between">
       <div className="container-fluid  ">{currentQuestionArr}</div>
 
       <div className="container-fluid  d-flex justify-content-between align-self-end ">
-        <button onClick={() => moveToPreviousPage()}> &#8592;</button>
+        {questionsCurrentIndex >= 4 ? (
+          <button
+            className="page-flip-btn"
+            onClick={() => moveToPreviousPage()}
+          >
+            &#8592;
+          </button>
+        ) : null}
         <div className="container text-center">
           <p className="mb-2"> {`score: ${score}/${props.triviaLength}`}</p>
           <Dots index={currentDotIndex} dotSize={dotSize()}></Dots>
         </div>
-        <button onClick={() => moveToNextPage()}> →</button>
+        {questionsCurrentIndex + 4 < props.triviaLength ? (
+          <button className="page-flip-btn " onClick={() => moveToNextPage()}>
+            →
+          </button>
+        ) : null}
       </div>
     </div>
   );
