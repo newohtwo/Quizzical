@@ -8,6 +8,22 @@ export default function triviaQuastions(props) {
   const [questions, setQuestions] = react.useState(initQuestions());
   const [currentDotIndex, setCurrentDotIndex] = react.useState(0);
 
+  const [time, setTime] = react.useState(0);
+  const [running, setRunning] = react.useState(true);
+
+  //page timer
+  react.useEffect(() => {
+    let interval;
+    if (running) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1000);
+      }, 1000);
+    } else if (!running) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [running]);
+
   const [currentQuestionArr, setCurrentQuestionArr] = react.useState(
     createQuestions()
   );
@@ -62,9 +78,10 @@ export default function triviaQuastions(props) {
   }
 
   function initQuestions() {
+    let htmlEntities = require('he');
     return props.triviaQuastions.map((question, index) => {
       return {
-        questionText: question.question,
+        questionText: htmlEntities.decode(question.question),
         correctAnswer: question.correct_answer,
         buttons: initBtnsForQuestion(question.rndAnswers),
         index,
@@ -143,8 +160,18 @@ export default function triviaQuastions(props) {
     return dotNum;
   }
 
+  function transparentDiv() {
+    return <div className="transperent-btn"> </div>;
+  }
+  //TODO MAKE THE TIMER INTO ITS OWN COMPONENT
+  //TODO FIGURE OUT WHAT TO SHOW ON THE END SCREEN
   return (
     <div className="container-fluid g-0 h-100 d-flex flex-column justify-content-between">
+      <div className="timer">
+        <span>{('0' + Math.floor((time / 3600000) % 60)).slice(-2)}:</span>
+        <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+        <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+      </div>
       <div className="container-fluid  ">{currentQuestionArr}</div>
 
       <div className="container-fluid  d-flex justify-content-between align-self-end ">
@@ -155,7 +182,9 @@ export default function triviaQuastions(props) {
           >
             &#8592;
           </button>
-        ) : null}
+        ) : (
+          transparentDiv()
+        )}
         <div className="container text-center">
           <p className="mb-2"> {`score: ${score}/${props.triviaLength}`}</p>
           <Dots index={currentDotIndex} dotSize={dotSize()}></Dots>
@@ -164,7 +193,9 @@ export default function triviaQuastions(props) {
           <button className="page-flip-btn " onClick={() => moveToNextPage()}>
             →
           </button>
-        ) : null}
+        ) : (
+          transparentDiv()
+        )}
       </div>
     </div>
   );

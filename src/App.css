@@ -1,3 +1,8 @@
+@font-face {
+  font-family: MelonHoney;
+  src: url('./assets/fonts/Melon\ Honey.ttf');
+}
+
 body {
   background-image: url('./assets/background.jpg');
   background-repeat: no-repeat;
@@ -14,7 +19,7 @@ body {
 .page {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   width: 950px;
-  height: 600px;
+  height: 680px;
   background-size: 50px 53px;
   background-image: repeating-linear-gradient(
     0deg,
@@ -24,14 +29,26 @@ body {
     #ffffff
   );
 }
+.timer {
+  position: absolute;
+  align-self: end;
+  padding-top: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 .question {
-  font-family: 'Heebo', sans-serif;
-  padding-top: 29px;
+  font-family: MelonHoney;
+  font-size: 24px;
+  padding-top: 20px;
   text-align: start;
+  padding-right: 100px;
 }
 .answer {
   width: 130px;
+  font-size: 19px;
+  font-family: MelonHoney;
 }
 .correctAnswer {
   background-color: green;
@@ -43,6 +60,12 @@ body {
 }
 .start-btn {
   padding: 3px 20px 3px 20px;
+}
+.transperent-btn {
+  background: transparent;
+  border: none !important;
+  width: 70px;
+  cursor: default;
 }
 .page-flip-btn {
   border-radius: 100%;

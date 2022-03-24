@@ -21,8 +21,8 @@ export default function Question(props) {
   }
 
   return (
-    <div className="container-fluid question ">
-      <p className="fw-bold mb-1 ">{props.question} </p>
+    <div className="container">
+      <p className="fw-bold mb-1 question "> {props.question} </p>
       <div className="container d-sm-flex justify-content-around ">
         {createPossibleAnswersBtns()}
       </div>
