@@ -1,6 +1,6 @@
 import './App.css';
 import IntroductionPage from './components/IntroductionPage';
-import TriviaQuastions from './components/TriviaQuastions';
+import TriviaGame from './components/TriviaGame';
 import react from 'react';
 import axios from 'axios';
 import data from './components/tempData';
@@ -66,7 +66,7 @@ function App() {
         <IntroductionPage createApiCall={mockCreateApiCall} key={nanoid()} />
       )}
       {showSettings && (
-        <TriviaQuastions
+        <TriviaGame
           triviaQuastions={triviaQuastions}
           triviaLength={triviaQuastions.length}
           key={nanoid()}

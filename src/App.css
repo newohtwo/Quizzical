@@ -38,17 +38,18 @@ body {
   font-weight: bold;
 }
 
-.question {
+.question-text {
   font-family: MelonHoney;
   font-size: 24px;
   padding-top: 20px;
   text-align: start;
   padding-right: 100px;
 }
-.answer {
+.btn {
   width: 130px;
   font-size: 19px;
   font-family: MelonHoney;
+  margin-top: 9px;
 }
 .correctAnswer {
   background-color: green;
@@ -81,8 +82,20 @@ body {
   .page {
     max-width: 360px;
   }
+
   .game-setting-select {
     width: 300px;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .start-btn {
+    margin-left: 55px;
+    padding: 3px 40px 3px 40px;
+  }
+  .question-array {
+    overflow-y: scroll;
+  }
+  .question {
   }
 }
 

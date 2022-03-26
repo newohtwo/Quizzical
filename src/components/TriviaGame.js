@@ -1,9 +1,10 @@
 import react from 'react';
 import Question from './Question';
-import Dots from './Dots';
+import GameFooter from './GameFooter';
 import { nanoid } from 'nanoid';
+import Timer from './Timer';
 
-export default function triviaQuastions(props) {
+export default function triviaGame(props) {
   const [score, setScore] = react.useState(0);
   const [questions, setQuestions] = react.useState(initQuestions());
   const [currentDotIndex, setCurrentDotIndex] = react.useState(0);
@@ -163,40 +164,25 @@ export default function triviaQuastions(props) {
   function transparentDiv() {
     return <div className="transperent-btn"> </div>;
   }
+
   //TODO MAKE THE TIMER INTO ITS OWN COMPONENT
   //TODO FIGURE OUT WHAT TO SHOW ON THE END SCREEN
   return (
     <div className="container-fluid g-0 h-100 d-flex flex-column justify-content-between">
-      <div className="timer">
-        <span>{('0' + Math.floor((time / 3600000) % 60)).slice(-2)}:</span>
-        <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
-        <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+      <Timer time={time} />
+      <div className="container-fluid question-array ">
+        {currentQuestionArr}
       </div>
-      <div className="container-fluid  ">{currentQuestionArr}</div>
-
-      <div className="container-fluid  d-flex justify-content-between align-self-end ">
-        {questionsCurrentIndex >= 4 ? (
-          <button
-            className="page-flip-btn"
-            onClick={() => moveToPreviousPage()}
-          >
-            &#8592;
-          </button>
-        ) : (
-          transparentDiv()
-        )}
-        <div className="container text-center">
-          <p className="mb-2"> {`score: ${score}/${props.triviaLength}`}</p>
-          <Dots index={currentDotIndex} dotSize={dotSize()}></Dots>
-        </div>
-        {questionsCurrentIndex + 4 < props.triviaLength ? (
-          <button className="page-flip-btn " onClick={() => moveToNextPage()}>
-            →
-          </button>
-        ) : (
-          transparentDiv()
-        )}
-      </div>
+      <GameFooter
+        dotSize={dotSize()}
+        currentDotIndex={currentDotIndex}
+        moveToNextPage={moveToNextPage}
+        questionsCurrentIndex={questionsCurrentIndex}
+        moveToPreviousPage={moveToPreviousPage}
+        transparentDiv={transparentDiv}
+        score={score}
+        triviaLength={props.triviaLength}
+      />
     </div>
   );
 }

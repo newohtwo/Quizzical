@@ -3,10 +3,7 @@ import react, { useEffect } from 'react';
 export default function SelectButton(props) {
   function disabledBtn() {
     return (
-      <button
-        disabled
-        className={`text-center answer btn btn-outline-primary `}
-      >
+      <button disabled className={`text-center  btn btn-outline-primary`}>
         {props.text}
       </button>
     );
@@ -14,17 +11,13 @@ export default function SelectButton(props) {
 
   function successBtn() {
     return (
-      <button className={`text-center answer btn btn-success `}>
-        {props.text}
-      </button>
+      <button className={`text-center  btn btn-success`}>{props.text}</button>
     );
   }
 
   function dangerBtn() {
     return (
-      <button className={`text-center answer btn btn-danger `}>
-        {props.text}
-      </button>
+      <button className={`text-center  btn btn-danger `}>{props.text}</button>
     );
   }
 
@@ -44,7 +37,7 @@ export default function SelectButton(props) {
     return (
       <button
         onClick={() => props.click(props.index, props.id)}
-        className={`text-center answer btn btn-outline-primary `}
+        className={`text-center  btn btn-outline-primary `}
       >
         {props.text}
       </button>
