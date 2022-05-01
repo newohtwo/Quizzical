@@ -14,6 +14,8 @@ To further improve my understanding of React and to challange myself with an exc
 ## Ways to improve
 Better naming for functions and variable to increase readability, Add organization to the file and folders of the project to improve scalability and readability, To utizliae more object destructuring, To learn more about React performance and its integration into web apps.
 
+[Try it here!](https://newohtwo.github.io/Quizzical/)
+
 ## Learnd Topics
 * JSX
 * ReactDOM.render()
