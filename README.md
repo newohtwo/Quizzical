@@ -3,7 +3,7 @@
 
 
 ## Features
-* Trivia questions from a wide variety of categories using the [open trivia database ] (https://opentdb.com/api_config.php)
+* Trivia questions from a wide variety of categories using the [open trivia database ](https://opentdb.com/api_config.php)
 * Challange yourself with 3 levels of difficulty
 * Instant feedback on your answers
 * Score screen for self reflection
