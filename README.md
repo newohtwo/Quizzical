@@ -9,10 +9,10 @@
 * Score screen for self reflection
 
 ## The purpose of this project
-To further improve my understanding of React and to challange myself with a fun and new project, I came into this project right after finishing the react course and this was a great opportunity to try and do things without guidance but overall points that should be present in the game.
+To further improve my understanding of React and to challange myself with an exciting and fun new project, I came into this project right after finishing the react course and this was a great opportunity for me to try and do things without guidance and with overall features that should be present in the game.
 
 ## Ways to improve
-Better naming for functions and variable to increase readability, Add organization to the file and folders of the project to improve scalability and readability, To utizliae more object destructuring, To learn more about React performance and its integration into web apps
+Better naming for functions and variable to increase readability, Add organization to the file and folders of the project to improve scalability and readability, To utizliae more object destructuring, To learn more about React performance and its integration into web apps.
 
 ## Learnd Topics
 * JSX
