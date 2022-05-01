@@ -1,5 +1,5 @@
 # Quizzical
-### Quiz Game inspierd from the [learn react for free course](https://scrimba.com/learn/learnreact)
+### Quiz Game inspierd by [learn react for free course](https://scrimba.com/learn/learnreact)
 
 
 ## Features
